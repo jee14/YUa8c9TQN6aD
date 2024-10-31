@@ -9,5 +9,4 @@ class YUa8c9Tqn6aDApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }

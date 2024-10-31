@@ -24,8 +24,8 @@ class ChatService(
             .collect(Collectors.joining(System.lineSeparator()))
         val response = chatClient
             .prompt()
-            .system {
-                s -> s.text(systemResource).params(mapOf(Pair("documents", documents)))
+            .system { s ->
+                s.text(systemResource).params(mapOf(Pair("documents", documents)))
             }
             .user(input.content)
             .call()

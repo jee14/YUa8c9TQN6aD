@@ -18,7 +18,7 @@ class ChatController(
         input: String,
     ) {
         val output = chatService.chat(
-            Chat(input)
+            Chat(input),
         )
         simpMessagingTemplate.convertAndSend("/subscribes/$chatId", output.content)
     }
