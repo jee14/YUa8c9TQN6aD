@@ -18,6 +18,7 @@ COPY --from=gradle-builder /builder/app.jar .
 EXPOSE 8080
 ENV TZ="Asia/Seoul"
 ENV OPENAI_API_KEY=${OPENAI_API_KEY}
+ENV SPRING_PROFILES_ACTIVE="local-docker"
 
 CMD java \
     -jar app.jar
