@@ -1,7 +1,18 @@
 services:
+  was-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - chroma
+    networks:
+      - backend
   chroma:
     image: ghcr.io/chroma-core/chroma:0.5.4
-    container_name: chroma-db
     volumes:
       - ./local-env/volumes/chroma-data:/chroma/chroma
     command: "--workers 1 --host 0.0.0.0 --port 8000 --proxy-headers --log-config chromadb/log_config.yml --timeout-keep-alive 30"
@@ -9,3 +20,8 @@ services:
       - IS_PERSISTENT=TRUE
     ports:
       - "8000:8000"
+    networks:
+      - backend
+
+networks:
+  backend:

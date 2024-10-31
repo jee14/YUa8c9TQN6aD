@@ -17,7 +17,7 @@ spring:
     vectorstore:
       chroma:
         client:
-          host: http://localhost
+          host: http://chroma
           port: 8000
         collection-name: vector-store
         initialize-schema: true
