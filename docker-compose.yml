@@ -1,0 +1,11 @@
+services:
+  chroma:
+    image: ghcr.io/chroma-core/chroma:0.5.4
+    container_name: chroma-db
+    volumes:
+      - ./local-env/volumes/chroma-data:/chroma/chroma
+    command: "--workers 1 --host 0.0.0.0 --port 8000 --proxy-headers --log-config chromadb/log_config.yml --timeout-keep-alive 30"
+    environment:
+      - IS_PERSISTENT=TRUE
+    ports:
+      - "8000:8000"

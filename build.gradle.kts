@@ -24,6 +24,7 @@ extra["springAiVersion"] = "1.0.0-M2"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-websocket")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.ai:spring-ai-openai-spring-boot-starter")
     implementation("org.springframework.ai:spring-ai-chroma-store-spring-boot-starter")
