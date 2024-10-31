@@ -25,7 +25,6 @@ def handle_user_input():
         with st.spinner("답변을 생성하는 중입니다."):
             try:
                 ai_response = send_command_async(user_question)
-                print("ai_response: " + ai_response)
                 with st.chat_message("ai"):
                     st.write(ai_response)
                 st.session_state.message_list.append({"role": "ai", "content": ai_response})
@@ -51,14 +50,12 @@ async def send_command(command):
             # 서버로부터 응답을 기다리고 수신
             while True:
                 raw_response = await websocket.recv()
-                print(f"Raw response received: {raw_response}")
 
                 # `MESSAGE` 프레임이 있는 경우에만 본문 추출
                 if raw_response.startswith("MESSAGE"):
                     body_match = re.search(r"\n\n(.*?)\0", raw_response, re.DOTALL)
                     if body_match:
                         body = body_match.group(1)
-                        print(f"Parsed message body: {body}")
                         return body  # 본문만 반환
                 else:
                     print("Non-MESSAGE frame received, ignoring.")
