@@ -1,2 +1,1 @@
 websockets==10.3
-stomper==0.4.3
