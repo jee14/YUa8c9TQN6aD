@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component
 import org.springframework.util.StopWatch
 import java.util.concurrent.TimeUnit
 
-@Profile("local", "local-docker")
+@Profile("test")
 @Component
-class Initialize(
+class InitializeSmallData(
     private val vectorStore: VectorStore,
 ) : ApplicationRunner {
     private val log = LoggerFactory.getLogger(this.javaClass)!!
 
-    @Value("classpath:/documents/final_result.json")
+    @Value("classpath:/documents/final_result_small.json")
     private lateinit var mdResource: Resource
 
     override fun run(args: ApplicationArguments?) {

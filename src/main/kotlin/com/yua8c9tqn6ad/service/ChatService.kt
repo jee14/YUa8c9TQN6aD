@@ -2,6 +2,8 @@ package com.yua8c9tqn6ad.service
 
 import com.yua8c9tqn6ad.domain.Chat
 import org.springframework.ai.chat.client.ChatClient
+import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor
+import org.springframework.ai.chat.model.ChatResponse
 import org.springframework.ai.document.Document
 import org.springframework.ai.vectorstore.VectorStore
 import org.springframework.beans.factory.annotation.Value
@@ -31,5 +33,17 @@ class ChatService(
             .call()
             .content()
         return Chat(response)
+    }
+
+    fun chatForResponse(input: Chat): ChatResponse {
+        val response = chatClient
+            .prompt()
+            .advisors(
+                QuestionAnswerAdvisor(vectorStore),
+            )
+            .user(input.content)
+            .call()
+            .chatResponse()
+        return response
     }
 }
