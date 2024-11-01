@@ -8,7 +8,7 @@ spring:
         api-key: ${OPENAI_API_KEY}
         options:
           model: text-embedding-3-large
-          dimensions: 8
+          dimensions: 3072
       chat:
         options:
           model: gpt-4o
