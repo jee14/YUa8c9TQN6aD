@@ -1,4 +1,6 @@
 ## Overview
+<img src="https://github.com/user-attachments/assets/b08bc867-02ad-4e62-9280-afffe0b7ba2b" width="500">
+
 This project features a Retrieval-Augmented Generation application developed using Spring AI.
 By leveraging advanced NLP techniques, this application enhances its responses using a combination of chat history and few-shot learning templates.
 
