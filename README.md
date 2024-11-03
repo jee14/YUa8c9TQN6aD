@@ -25,7 +25,7 @@ cp {.env path} .
 ```
 3. Run Docker Compose:
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
 4. Run the client:
 ```sh
