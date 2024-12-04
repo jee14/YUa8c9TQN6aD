@@ -27,7 +27,12 @@ cp {.env path} .
 ```sh
 docker compose up -d
 ```
-4. Run the client:
+4. Embed the Smart Store FAQ data:
+```sh
+curl -X PUT http://localhost:8080/embeddings \
+      -H "Content-Type: application/json"
+```
+5. Run the client:
 ```sh
 cd frontend
 chmod +x ./run.sh

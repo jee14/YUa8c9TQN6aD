@@ -1,0 +1,7 @@
+POST http://localhost:8080/chats
+Content-Type: application/json
+Accept: text/event-stream
+
+{
+  "input": "Hello, I want to use the Smart Store service."
+}
