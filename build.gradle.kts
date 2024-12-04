@@ -20,7 +20,7 @@ repositories {
     maven { url = uri("https://repo.spring.io/milestone") }
 }
 
-extra["springAiVersion"] = "1.0.0-M2"
+extra["springAiVersion"] = "1.0.0-M4"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
