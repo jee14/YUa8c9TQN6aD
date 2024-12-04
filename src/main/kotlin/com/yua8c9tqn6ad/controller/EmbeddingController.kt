@@ -17,7 +17,7 @@ class EmbeddingController(
 ) {
     private val log = LoggerFactory.getLogger(this.javaClass)!!
 
-    @Value("classpath:/documents/final_result.json")
+    @Value("classpath:/documents/naver_smartstore.json")
     private lateinit var resource: Resource
 
     @PutMapping("/embeddings")
@@ -30,8 +30,6 @@ class EmbeddingController(
         val splitDocuments = TokenTextSplitter().split(textReader.read())
         splitDocuments.forEach { document ->
             vectorStore.add(mutableListOf(document))
-            val lapTime = stopWatch.lastTaskInfo().timeSeconds
-            log.info("Document $document embedded. Time elapsed: ${lapTime}s")
         }
 
         stopWatch.stop()
