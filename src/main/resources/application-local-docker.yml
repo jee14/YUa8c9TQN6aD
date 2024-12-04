@@ -4,16 +4,15 @@ spring:
   ai:
     openai:
       api-key: ${OPENAI_API_KEY}
-      embedding:
-        api-key: ${OPENAI_API_KEY}
-        options:
-          model: text-embedding-3-large
-          dimensions: 3072
       chat:
         options:
           model: gpt-4o
           temperature: 0.2
           max-tokens: 300
+      embedding:
+        options:
+          model: text-embedding-3-large
+          dimensions: 3072
     vectorstore:
       chroma:
         client:
